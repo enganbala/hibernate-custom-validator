@@ -1,0 +1,38 @@
+/*		ConstraintHelper helper = new ConstraintHelper();
+		List<ConstraintValidatorDescriptor<Future>> lists =helper.getAllValidatorDescriptors(javax.validation.constraints.Future.class);
+		for(ConstraintValidatorDescriptor<Future> list : lists){
+			System.out.println(list.getValidatorClass().getName());
+		}*/
+		
+/*		final HibernateValidatorConfiguration configuration = ValidatorUtil.getConfiguration();
+		ConstraintMapping mapping = configuration.createConstraintMapping();
+		mapping.constraintDefinition(MyFutureValidator.class);
+		ConstraintHelper helper = new ConstraintHelper();
+		helper.putValidatorDescriptors(arg0, arg1, arg2);
+*/		
+/*		final Configuration<?> configuration = ValidatorUtil.getConfiguration();
+		configuration.addMapping( CustomFutureTest.class.getResourceAsStream( "src/mainresources/META-INF/validation.xml" ) );
+
+		final ValidatorFactory validatorFactory = configuration.buildValidatorFactory();
+		final Validator validator = validatorFactory.getValidator();
+*/		
+		
+		/*	ConstraintMapping mapping = new ConstraintMapping(){
+			@Override
+			public <A extends Annotation> ConstraintDefinitionContext<A> constraintDefinition(Class<A> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public <C> TypeConstraintMappingContext<C> type(Class<C> arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};*/
+		// configure mapping instance
+
+/*		HibernateValidatorConfiguration config = Validation.byProvider( HibernateValidator.class ).configure();
+		config.addMapping( mapping );
+		ValidatorFactory factory = config.buildValidatorFactory();
+		Validator validator = factory.getValidator();*/
