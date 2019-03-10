@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.validation.Configuration;
@@ -37,6 +38,7 @@ public class CustomFutureTest {
 	@Test
 	public void testCustomFuture() {
 		Booking booking = new Booking(Date.from(Calendar.getInstance().toInstant()));
+		booking.setCar(new Car("","",1));
 
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
@@ -46,10 +48,19 @@ public class CustomFutureTest {
 
 //		assertEquals(1, constraintViolations.size());
 		for (ConstraintViolation<Booking> con : constraintViolations) {
-			System.out.println(con.getMessage());
+			System.out.println(con.getMessage() + " - " + con.getInvalidValue()   );
 			System.out.println(con.getConstraintDescriptor().getAnnotation().annotationType().getSimpleName());
 			System.out.println("Field "+ con.getPropertyPath());
 			//assertNotEquals("must be a future date", con.getMessage());
+			String anotationType = con.getConstraintDescriptor().getAnnotation().annotationType().getSimpleName();
+			System.out.println(anotationType);
+			if("Min".equals(anotationType)){
+				Map<String, Object> attributes = con.getConstraintDescriptor().getAttributes();
+				System.out.println(con.getConstraintDescriptor());
+				System.out.println("payload " + con.getConstraintDescriptor().getPayload());
+				System.out.println(attributes);
+			}
+			
 		}
 		
 		ConstraintViolation<Booking> constraintViolation = constraintViolations.iterator().next();
